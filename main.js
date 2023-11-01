@@ -1,12 +1,13 @@
 
 
-var client_id = 'bc16d65feba34c608d8450e9d764d834';
-var client_secret = 'e3192148ff3e4499b1d11b79371c43df';
+
+var G_client_id = 'CLIENT_ID';
+var G_client_secret = 'CLIENT_SECRET';
 
 var authOptions = {
   method: 'POST',
   headers: {
-    'Authorization': 'Basic ' + btoa (client_id + ':' + client_secret),
+    'Authorization': 'Basic ' + btoa (G_client_id + ':' + G_client_secret),
     'Content-Type': 'application/x-www-form-urlencoded'
   },
   body: 'grant_type=client_credentials'
@@ -23,11 +24,11 @@ fetch('https://accounts.spotify.com/api/token', authOptions)
 
 // Agrega un controlador de eventos al botón de búsqueda
 document.getElementById('buscarButton').addEventListener('click', function() {
-  buscarArtistasOAlbumes();
+  G_buscarArtistasOAlbumes();
 });
 
 // Función para buscar artistas o álbumes en la API de Spotify
-function buscarArtistasOAlbumes() {
+function G_buscarArtistasOAlbumes() {
   const barraBusqueda = document.getElementById('barraBusqueda');
   const busqueda = barraBusqueda.value; // Obtén el término de búsqueda del input
 
