@@ -118,4 +118,10 @@ main.mainContent article.bodyOfContent section.favourites div.containerElements 
   background-color: var(--color1);
 }
 
+main.mainContent article.bodyOfContent section.favourites div.containerElements article.element div.img img{
+  object-fit: cover;
+  height: 10em;
+  width: 10em;
+}
+
 /*fin de main*/
