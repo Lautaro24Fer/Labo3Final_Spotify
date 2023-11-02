@@ -1,37 +1,85 @@
-const {VITE_API_KEY: key} = import.meta.env
+const { VITE_API_KEY: key } = import.meta.env
 
-async function getData(){
-    const url = 'https://spotify23.p.rapidapi.com/search/?q=one3E&type=multi&offset=0&limit=1&numberOfTopResults=1';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': `${key}`,
-		'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-	}
-};
+const LF_ds_imgEl = document.querySelectorAll(".discoElementSpotify .img");
+const LF_ds_albumNameEl = document.querySelectorAll(".discoElementSpotify .text .nombre");
+const LF_ds_artistNameEl = document.querySelectorAll(".discoElementSpotify .text .artista");
 
-fetch(url, options)
-.then((res) => res.json())
-.then(data => {
-    console.log(data.albums.items[0].data)
-    crearDisco(data.albums.items[0].data)
-})
-.catch(erros =>{console.log(erros)})
+const LF_playlistFromSpotify = [
+    {
+        name: 'Top 50: Argentina',
+        artist: 'Spotify',
+        id: '37i9dQZEVXbMMy2roB9myp'
+    },
+    {
+        name: 'Top 50: Global',
+        artist: 'Spotify',
+        id: '37i9dQZEVXbMDoHDwVN2tF'
+    },
+    {
+        name: 'Radio de Enjoy the Silence',
+        artist: 'Spotify',
+        id: '37i9dQZF1E8LbYURdEhV9j'
+    },
+    {
+        name: 'Asadito',
+        artist: 'Spotify',
+        id: '37i9dQZF1DX1ToZ44rvfQL'
+    },
+    {
+        name: 'Radio de Born Again',
+        artist: 'Spotify',
+        id: '37i9dQZF1E8HRxkpZuSEWB'
+    },
+]
+
+async function getFeedData() {
+
+    LF_playlistFromSpotify.map((disco, index) => {
+        const url = `https://spotify23.p.rapidapi.com/playlist/?id=${disco.id}`;
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': `${key}`,
+                'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+            }
+        };
+
+        fetch(url, options)
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data)
+                crearDisco(data, index)
+            })
+            .catch(erros => {
+                console.log(erros)
+            })
+    })
 
 }
 
-function crearDisco(data1){
-    const discoEl = document.querySelector('#discoPrueba')
+function crearDisco(data1, index) {
 
-    if(!data1){
-        return
-    }
     const img = document.createElement("img")
-    img.src = data1.coverArt.sources[0].url
-    discoEl.appendChild(img)
+    img.src = data1.images[0].url
+    LF_ds_imgEl[index].appendChild(img)
+
+    LF_ds_albumNameEl[index].innerHTML = ''
+
+    LF_ds_albumNameEl[index].innerHTML = `
+    <h3 class="nombre">
+        ${data1.name}
+    </h3>
+    `
+    LF_ds_artistNameEl[index].innerHTML = ''
+    LF_ds_artistNameEl[index].innerHTML = `
+    <div class="artista">
+        De ${data1.owner.display_name}
+    </div>
+    `
 }
 
-getData()
+getFeedData()
 
 
 
