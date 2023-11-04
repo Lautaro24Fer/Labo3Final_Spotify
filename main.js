@@ -1,5 +1,5 @@
-var G_client_id = 'bc16d65feba34c608d8450e9d764d834';
-var G_client_secret = 'e3192148ff3e4499b1d11b79371c43df';
+var G_client_id = '';
+var G_client_secret = '';
 var token = ''; // Variable global para el token
 
 // Renovación para el uso de los tokens y su renovación automáticamente
@@ -41,7 +41,7 @@ function buscarDatos() {
       .then(response => response.json())
       .then(data => {
         console.log('Resultados de la búsqueda:', data);
-        // Mostrar los resultados en la interfaz o procesarlos según sea necesario
+        // Mostrar los resultados en la interfaz 
       })
       .catch(error => {
         console.error('Error al realizar la búsqueda:', error);
@@ -54,5 +54,5 @@ function buscarDatos() {
 // Obtener un nuevo token al inicio
 obtenerNuevoToken();
 
-// Renovar el token cada cierto tiempo (por ejemplo, cada 50 minutos)
+// Renovacion del token, ni idea si se puede aumentar o dismunuir, pero funciona piola
 setInterval(obtenerNuevoToken, 50 * 60 * 1000); // Renovar cada 50 minutos
