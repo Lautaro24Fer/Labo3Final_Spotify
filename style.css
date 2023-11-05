@@ -77,17 +77,21 @@ main.mainContent {
   border-radius: 1em;
   padding: 1em;
   color: var(--color5);
+  overflow-x: auto;
 }
 
 main.mainContent article.bodyOfContent {
   padding: 3em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-main.mainContent article.bodyOfContent section.favourites {
+main.mainContent article.bodyOfContent section {
   width: 100%;
 }
 
-main.mainContent article.bodyOfContent section.favourites div.containerElements {
+main.mainContent article.bodyOfContent section div.containerElements {
   display: flex;
   gap: 2em;
   flex-wrap: nowrap;
@@ -97,13 +101,13 @@ main.mainContent article.bodyOfContent section.favourites div.containerElements 
 }
 
 @media (width >=1275px) {
-  main.mainContent article.bodyOfContent section.favourites div.containerElements {
+  main.mainContent article.bodyOfContent section div.containerElements {
     justify-content: space-around;
     overflow: hidden;
   }
 }
 
-main.mainContent article.bodyOfContent section.favourites div.containerElements article.element {
+main.mainContent article.bodyOfContent section div.containerElements article.element {
   background-color: var(--color6);
   padding: 1em 1em 1.5em 1em;
   border-radius: 1em;
@@ -114,19 +118,19 @@ main.mainContent article.bodyOfContent section.favourites div.containerElements 
   width: 11em;
 }
 
-main.mainContent article.bodyOfContent section.favourites div.containerElements article.element div.img {
+main.mainContent article.bodyOfContent section div.containerElements article.element div.img {
   height: 9em;
   width: 9em;
   background-color: var(--color1);
 }
 
-main.mainContent article.bodyOfContent section.favourites div.containerElements article.element div.img img {
+main.mainContent article.bodyOfContent section div.containerElements article.element div.img img {
   object-fit: cover;
   height: 9em;
   width: 9em;
 }
 
-main.mainContent article.bodyOfContent section.favourites div.containerElements article.element h3.nombre {
+main.mainContent article.bodyOfContent section div.containerElements article.element h3.nombre {
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -134,7 +138,7 @@ main.mainContent article.bodyOfContent section.favourites div.containerElements 
   font-size: 1em;
 }
 
-main.mainContent article.bodyOfContent section.favourites div.containerElements article.element div.artista{
+main.mainContent article.bodyOfContent section div.containerElements article.element div.artista{
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
