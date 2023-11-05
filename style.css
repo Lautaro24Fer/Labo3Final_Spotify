@@ -30,6 +30,9 @@ a {
   text-decoration: none;
 }
 
+li{
+  list-style: none;
+}
 /*configurar grilla*/
 
 article.container-grid {
@@ -48,7 +51,7 @@ aside.asideSection {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 25% 1fr;
+  grid-template-rows: 20% 1fr;
   gap: 1em;
 }
 
@@ -60,12 +63,103 @@ section.nav {
   border-radius: 1em;
 }
 
+section.nav ul.nav-containerItems {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding:  0 0 0 2em;
+  justify-content: space-evenly;
+}
+
+section.nav ul.nav-containerItems li.nav-itemElement button{
+  background-color: transparent;
+  border: none;
+}
+
+section.nav ul.nav-containerItems li.nav-itemElement button a{
+  display: flex;
+  gap: 1em;
+
+}
+
+section.nav ul.nav-containerItems li.nav-itemElement button a svg{
+  height: 1.5em;
+  fill: var(--color4);
+}
+
+section.nav ul.nav-containerItems li.nav-itemElement button a h6{
+  font-size: 1.5em;
+  color: var(--color4)
+
+}
+
 /*biblioteca*/
 
 section.biblio {
   height: 100%;
   background-color: var(--color2);
   border-radius: 1em;
+  padding: 1.5em 1em 1em 1em;
+}
+
+section.biblio div.biblio-header{
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  position: relative;
+}
+
+section.biblio div.biblio-header svg{
+  fill: var(--color4);
+  height: 1.2em;
+}
+
+section.biblio div.biblio-header svg.plusButton{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: .4em 0 0 0;
+}
+
+section.biblio div.biblio-header h6{
+  color: var(--color4);
+  font-size: 1.2em;
+}
+
+section.biblio div.biblio-main{
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0 0 0;
+  color: var(--color5);
+  gap: 1em;
+}
+
+section.biblio div.biblio-main div.biblioCard{
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  background-color: var(--color3);
+  border-radius: .5em;
+  padding: .8em;
+
+}
+
+section.biblio div.biblio-main div.biblioCard h6{
+  font-size: 1.1em;
+}
+
+section.biblio div.biblio-main div.biblioCard p{
+  font-size: .9em;
+}
+
+section.biblio div.biblio-main div.biblioCard button{
+  margin: 1em 0 0 0;
+  padding: .6em 1.2em;
+  width: max-content;
+  border-radius: 1em;
+  border: transparent;
+  background-color: white;
+  font-weight: bold;
 }
 
 /*fin de aside*/
@@ -78,6 +172,10 @@ main.mainContent {
   padding: 1em;
   color: var(--color5);
   overflow-x: auto;
+}
+
+main.mainContent header h1{
+  font-size: 2em;
 }
 
 main.mainContent article.bodyOfContent {
