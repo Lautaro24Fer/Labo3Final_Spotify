@@ -8,18 +8,19 @@
     <title>SpotiHub</title>
   </head>
   <body>
-    <body>
-      <body>
-        <div>
-          <select id="seleccionTipo">
-            <option value="artist">Artista</option>
-            <option value="album">Álbum</option>
-            <option value="track">Canción</option>
-          </select>
-          <input type="text" id="barraBusqueda" placeholder="Buscar en Spotify">
-          <button id="buscarButton">Buscar</button>
-        </div>
-        <script src="main.js"></script>
-      </body>
+    <div class="container">
+      <h1>SpotiHub</h1>
+      <div class="search-box">
+        <input type="text" id="barraBusqueda" placeholder="Buscar en Spotify">
+        <select id="seleccionTipo">
+          <option value="artist">Artista</option>
+          <option value="album">Álbum</option>
+          <option value="track">Canción</option>
+        </select>
+        <button id="buscarButton">Buscar</button>
+      </div>
+    </div>
+    <div id="searchContainer"></div>
+    <script src="main.js"></script>
   </body>
 </html>
