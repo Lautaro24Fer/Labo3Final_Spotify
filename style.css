@@ -26,7 +26,6 @@ body {
 }
 
 a {
-  color: var(--color5);
   text-decoration: none;
 }
 
@@ -76,6 +75,7 @@ section.nav ul.nav-containerItems li.nav-itemElement button{
   border: none;
 }
 
+
 section.nav ul.nav-containerItems li.nav-itemElement button a{
   display: flex;
   gap: 1em;
@@ -100,6 +100,16 @@ section.biblio {
   background-color: var(--color2);
   border-radius: 1em;
   padding: 1.5em 1em 1em 1em;
+  overflow-y: auto;
+}
+
+section.biblio::-webkit-scrollbar{
+  background-color: transparent;
+}
+
+section.biblio::-webkit-scrollbar-thumb{
+  background-color: var(--color3);
+  border-radius: 1em;
 }
 
 section.biblio div.biblio-header{
@@ -162,6 +172,40 @@ section.biblio div.biblio-main div.biblioCard button{
   font-weight: bold;
 }
 
+div.biblio-footer ul.legalThings {
+  padding: 4em 0 0 0;
+}
+
+div.biblio-footer ul.legalThings li{
+  display: inline;
+  margin-right: .9em;
+}
+
+div.biblio-footer ul.legalThings li a{
+  color: var(--color4);
+}
+
+div.biblio-footer ul.legalThings li a:hover{
+  text-decoration: underline;
+}
+
+section.biblio button.translateButton{
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  margin: 2em 0 0 0;
+  padding: .5em .8em;
+  border-radius: 1em;
+  border: 1px solid var(--color4);
+  color: var(--color5);
+  background-color: transparent;
+  font-size: .9em;
+}
+
+section.biblio button.translateButton svg{
+  fill: var(--color5);
+  height: 1.7em;
+}
 /*fin de aside*/
 
 /*main*/
@@ -172,6 +216,16 @@ main.mainContent {
   padding: 1em;
   color: var(--color5);
   overflow-x: auto;
+}
+
+main.mainContent::-webkit-scrollbar{
+  background-color: transparent;
+}
+
+main.mainContent::-webkit-scrollbar-thumb{
+  background-color: var(--color3);
+  border-radius: 2em;
+  width: 2em;
 }
 
 main.mainContent header h1{
@@ -236,12 +290,106 @@ main.mainContent article.bodyOfContent section div.containerElements article.ele
   font-size: 1em;
 }
 
-main.mainContent article.bodyOfContent section div.containerElements article.element div.artista{
+main.mainContent article.bodyOfContent section div.containerElements article.element div.artista {
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   color: var(--color4);
+}
+
+/*footer*/
+
+footer.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 3em 0 5em 0;
+}
+
+footer.footer section.aboutUse {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+
+footer.footer section.aboutUse article ul{
+  margin: .8em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+footer.footer section.aboutUse article ul li a{
+  color: var(--color4);
+}
+
+footer.footer section.aboutUse article ul li a:hover{
+  text-decoration: underline;
+}
+
+footer.footer article.media{
+  display: flex;
+  gap: .5em;
+  justify-content: end;
+}
+footer.footer article.media button{
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  fill: var(--color5);
+  background-color: var(--color3);
+  border: none;
+  display: grid;
+  place-items: center;
+}
+
+footer.footer article.media button a{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+footer.footer article.media button a svg{
+  height: 1.3em;
+}
+section.aboutLegalUse {
+  display: flex;
+  position: relative;
+  padding: 1em 0 0 0;
+}
+
+section.aboutLegalUse ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 1em;
+  text-align: left;
+  gap: 10px;
+}
+
+section.aboutLegalUse ul li {
+  font-size:.9em;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+section.aboutLegalUse ul li a{
+  color: var(--color4);
+}
+
+section.aboutLegalUse div.copyright{
+  color: var(--color5);
 }
 
 /*fin de main*/
