@@ -268,6 +268,37 @@ main.mainContent article.bodyOfContent section div.containerElements article.ele
   width: max-content;
   gap: 1em;
   width: 11em;
+  position: relative;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element button.goToSpotifyBtn{
+  background-color: rgb(83, 255, 83);
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 1em 4em 0;
+  opacity: 0;
+  transition: all .1s ease-in;
+  box-shadow: -1px 8px 22px -5px rgba(0,0,0,0.75);
+-webkit-box-shadow: -1px 8px 22px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 8px 22px -5px rgba(0,0,0,0.75);
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element button.goToSpotifyBtn:hover{
+  transition: all .1s ease-in;
+  height: 3.8em;
+  width: 3.8em;
+  margin: 0 1.3em 4.3em 0;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element button.goToSpotifyBtn svg{
+  height: 1.5em;
 }
 
 main.mainContent article.bodyOfContent section div.containerElements article.element div.img {

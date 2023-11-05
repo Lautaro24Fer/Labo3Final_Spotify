@@ -168,23 +168,22 @@ function mostrarFeed() {
     })
 }
 
-mostrarFeed()
 
 
-async function getData(url) {
-    // const url = 'https://spotify23.p.rapidapi.com/albums/?ids=3IBcauSj5M2A6lTeffJzdv';
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': `${clientId}`,
-            'X-RapidAPI-Host': `${rapidApiHost}`
-        }
-    };
+// async function getData(url) {
+//     const url = 'https://spotify23.p.rapidapi.com/albums/?ids=3IBcauSj5M2A6lTeffJzdv';
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'X-RapidAPI-Key': `${clientId}`,
+//             'X-RapidAPI-Host': `${rapidApiHost}`
+//         }
+//     };
 
-    await fetch(url, options)
-        .then(response => response.json())
-        .then(data => console.log(data));
-}
+//     await fetch(url, options)
+//         .then(response => response.json())
+//         .then(data => console.log(data));
+// }
 
 // function buildFeed() {
 //     let url = ''
@@ -201,10 +200,21 @@ async function getData(url) {
 
 // buildFeed()
 
+mostrarFeed()
 
+const LF_albumsArray = document.querySelectorAll(".discoElementSpotify")
 
-
-
-
-
-
+LF_albumsArray.forEach(album => {
+    album.addEventListener("mouseenter", (e) => {
+        let btn = album.querySelector("#goToSpotify")
+        btn.style.transition = "all .1s all .4s ease-in"
+        btn.style.margin = "0 1em 5em 0"
+        btn.style.opacity = "1"
+    })
+    album.addEventListener("mouseleave", (e) => {
+        let btn = album.querySelector("#goToSpotify")
+        btn.style.transition = "all .1s all .4s ease-in"
+        btn.style.margin = "0 1em 4em 0"
+        btn.style.opacity = "0"
+    })
+});
