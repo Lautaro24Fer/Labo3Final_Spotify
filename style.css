@@ -1,58 +1,180 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-    color: #1DB954; /* Color verde característico de Spotify */
-  }
-  
-  .search-box {
-    display: flex;
-    align-items: center;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  select {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #1DB954;
-    border: none;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0f723a;
-  }
-  .container2{
-    display: none;
-  }
+  font-family: 'Circular Spotify Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(24, 24, 24);
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+input[type="text"],
+select {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #000;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+  color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ccc;
+}
+
+.results-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  width: 30vh;
+  height: 40vh;
+  background-color: #4b4b4b;
+}
+
+.result-img {
+  width: 50px;
+  width: 40vh;
+  height: 40vh;
+  margin-right: 15px;
+  border-radius: 20%;
+}
+
+.result-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.result-name {
+  margin: 0 0 5px;
+  font-size: 1.6em;
+}
+
+.result-artists {
+  margin: 0;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.tipo-btn {
+  padding: 8px 16px;
+  margin-right: 8px;
+  background-color: #747474;
+  cursor: pointer;
+}
+
+.tipo-btn.tipo-activo {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #007bff;
+
+}
+
+.result-card {
+  max-width: 50vh;
+  max-height: 50vh;
+  background-color: rgb(14, 14, 14);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+}
+
+.result-img {
+  max-width: 50vh;
+  max-height: 50vh;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.result-name {
+  font-weight: bold;
+  margin: 0;
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+.result-type {
+  color: #888;
+  margin: 0;
+}
+
+/* Estilo nuevo */
+.result-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.result-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.result-name,
+.result-type {
+  margin: 0;
+}
+
+#searchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.result-name,
+.result-type {
+  margin: 0;
+}
+
+.soyunaclase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  margin: 2em 0 0 0;
+  padding: .5em .8em;
+  border-radius: 1em;
+  border: 1px solid var(--color4);
+  color: var(--color5);
+  background-color: transparent;
+  font-size: .9em;
+  transition: all .1s ease-in-out;
+  width: 80%;
+}

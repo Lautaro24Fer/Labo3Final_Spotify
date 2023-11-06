@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <title>SpotiHub</title>
-  </head>
-  <body>
-    <body>
-    
-      <body>
-        <div class="container">
-          <h1>Buscador de Spotify</h1>
-          <div class="search-box">
-            <input type="text" id="barraBusqueda" placeholder="Buscar artistas o álbumes">
-            <button id="buscarButton">Buscar</button>
-          </div>
-          <div id="resultados">
-            <!-- Aquí se mostrarán los resultados -->
-          </div>
-        </div>
-    
-        <script type="module" src="/main.js"></script>
-      </body>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>SpotiHub</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="search-box">
+      <input type="text" id="barraBusqueda" placeholder="Buscar en Spotify">
+      <div id="botonesTipos">
+        <button class="tipo-btn tipo-activo" value="artist">Artista</button>
+        <button class="tipo-btn" value="album">Álbum</button>
+        <button class="tipo-btn" value="track">Canción</button>
+        <button class="tipo-btn" value="playlist">Playlist</button>
+      </div>
+      <button id="buscarButton">Buscar</button>
+    </div>
+  </div>
+
+  <div id="searchContainer" class="soyunaclase"></div>
+  <script src="main.js"></script>
+</body>
+
 </html>

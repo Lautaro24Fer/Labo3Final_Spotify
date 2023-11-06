@@ -1,9 +1,9 @@
-//credenciales para poder usar la API y los token
-var G_client_id = 'bc16d65feba34c608d8450e9d764d834';
-var G_client_secret = 'e3192148ff3e4499b1d11b79371c43df';
+var G_client_id = '';
+var G_client_secret = '';
 var token = ''; // Variable global para el token
+const searchContainer = document.getElementById('searchContainer'); // Asegúrate de tener un contenedor con id "searchContainer"
 
-//Renovacion para el uso de los token y su renovecion automaticamente
+// Renovación para el uso de los tokens y su renovación automáticamente
 function obtenerNuevoToken() {
   var authOptions = {
     method: 'POST',
@@ -23,16 +23,27 @@ function obtenerNuevoToken() {
     .catch(error => console.error('Error al obtener un nuevo token:', error));
 }
 
-document.getElementById('buscarButton').addEventListener('click', function() {
-  buscarArtistasOAlbumes();
+document.getElementById('buscarButton').addEventListener('click', function () {
+  buscarDatos();
 });
 
-function buscarArtistasOAlbumes() {
+const botonesTipo = document.querySelectorAll('.tipo-btn');
+
+botonesTipo.forEach(boton => {
+  boton.addEventListener('click', function () {
+    botonesTipo.forEach(btn => btn.classList.remove('tipo-activo'));
+    this.classList.add('tipo-activo');
+  });
+});
+
+function buscarDatos() {
   const barraBusqueda = document.getElementById('barraBusqueda');
   const busqueda = barraBusqueda.value.trim();
 
+  const tipoSeleccionado = document.querySelector('.tipo-activo').value;
+
   if (busqueda) {
-    fetch(`https://api.spotify.com/v1/search?q=${busqueda}&type=artist`, {
+    fetch(`https://api.spotify.com/v1/search?q=${busqueda}&type=${tipoSeleccionado}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -41,7 +52,11 @@ function buscarArtistasOAlbumes() {
       .then(response => response.json())
       .then(data => {
         console.log('Resultados de la búsqueda:', data);
-        mostrarResultados(data.artists.items);
+
+        // Limpiar el contenedor antes de mostrar los nuevos resultados
+        searchContainer.innerHTML = '';
+
+        mostrarResultados(data, tipoSeleccionado); // Llama a la función para mostrar los resultados en la interfaz
       })
       .catch(error => {
         console.error('Error al realizar la búsqueda:', error);
@@ -51,38 +66,82 @@ function buscarArtistasOAlbumes() {
   }
 }
 
-function mostrarResultados(artistas) {
-  const resultadosDiv = document.getElementById('resultados');
-  resultadosDiv.innerHTML = ''; // Limpia los resultados anteriores
+function mostrarResultados(data, tipoSeleccionado) {
+  const resultados = data[tipoSeleccionado + 's'].items.slice(0, 8); // Limitar los resultados a 7 elementos
 
-  if (artistas.length > 0) {
-    const primerArtista = artistas[0];
-    
-    const artistaDiv = document.createElement('div');
-    artistaDiv.classList.add('artista');
+  resultados.forEach(resultado => {
+    let src, name, href;
+    href = resultado.external_urls.spotify; // Obtener el enlace de Spotify
 
-    const nombre = document.createElement('h3');
-    nombre.textContent = primerArtista.name;
-
-    const imagen = document.createElement('img');
-    if (primerArtista.images.length > 0) {
-      imagen.src = primerArtista.images[0].url;
-      imagen.alt = `Imagen de ${primerArtista.name}`;
+    if (tipoSeleccionado === 'track') {
+      if (resultado.album && resultado.album.images && resultado.album.images.length > 0) {
+        src = resultado.album.images[0].url;
+      } else {
+        src = '../assets/default_image.png';
+      }
     } else {
-      imagen.src = 'url de imagen por defecto o aviso de ausencia';
-      imagen.alt = `Imagen no disponible para ${primerArtista.name}`;
+      if (resultado.images && resultado.images.length > 0) {
+        src = resultado.images[0].url;
+      } else {
+        src = '../assets/default_image.png';
+      }
     }
 
-    artistaDiv.appendChild(nombre);
-    artistaDiv.appendChild(imagen);
+    if (resultado.name) {
+      name = resultado.name;
+    } else {
+      name = 'Nombre no disponible';
+    }
 
-    resultadosDiv.appendChild(artistaDiv);
-  } else {
-    resultadosDiv.innerHTML = '<p>No se encontraron artistas</p>'; // Manejar el caso en el que no se encuentren artistas
-  }
+    generateDiv(
+      href,
+      src,
+      name,
+      tipoSeleccionado
+    );
+  });
 }
+
+function generateDiv(href, src, name, type, imgClass = "") {
+  if (src === null) {
+    src = "../assets/default_user.png";
+  }
+
+  const a = document.createElement("a");
+  a.href = href;
+
+  const div = document.createElement('div');
+  div.classList.add('results-container');
+
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = `logo-${name}`;
+  img.className = `result-img w-24 justify-center items-center ${imgClass}`;
+  img.draggable = 'false';
+
+  const nameHeader = document.createElement('h5');
+  nameHeader.textContent = name;
+  nameHeader.classList.add('result-name');
+
+  const typeHeader = document.createElement('h6');
+  typeHeader.textContent = type;
+  typeHeader.classList.add('result-type');
+  typeHeader.classList.add('text-gray-400');
+
+  a.target = "_blank"; // Abre el enlace en una nueva pestaña
+
+  searchContainer.appendChild(a);
+  a.appendChild(div);
+  div.appendChild(img);
+  div.appendChild(nameHeader);
+  div.appendChild(typeHeader);
+
+  a.appendChild(div);
+  searchContainer.appendChild(a);
+}
+
 // Obtener un nuevo token al inicio
 obtenerNuevoToken();
 
-// Renovar el token cada cierto tiempo (por ejemplo, cada 50 minutos)
+// Renovación del token, no está clara su manipulación
 setInterval(obtenerNuevoToken, 50 * 60 * 1000); // Renovar cada 50 minutos
