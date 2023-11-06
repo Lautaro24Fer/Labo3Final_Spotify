@@ -251,7 +251,7 @@ main.mainContent::-webkit-scrollbar-thumb{
   transition: all .2s ease-in-out;
 }
 
-main.mainContent:hover::-webkit-scrollbar-thumb{
+main.mainContent:hover::-webkit-scrollbar-thumb {
   background-color: var(--color3);
   opacity: 1;
   border-radius: 2em;
@@ -259,9 +259,29 @@ main.mainContent:hover::-webkit-scrollbar-thumb{
   transition: all .2s ease-in-out;
 }
 
-main.mainContent header h1{
+main.mainContent header h1 {
   font-size: 2em;
 }
+
+/*seccion de botones favoritos--logueado*/
+
+main.mainContent header section.favouritesAlbums-logged {
+  margin: 2em 0 0 0;
+  width: 100%;
+  height: 8em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: .5em;
+}
+
+main.mainContent header section.favouritesAlbums-logged button{
+  background-color: var(--color3);
+  border: none;
+  border-radius: .3em;
+}
+
+/*--loggeado*/
 
 main.mainContent article.bodyOfContent {
   padding: 3em 0 0 0;
