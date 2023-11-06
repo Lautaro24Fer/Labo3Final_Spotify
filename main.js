@@ -1,5 +1,5 @@
-var G_client_id = '';
-var G_client_secret = '';
+var G_client_id = 'bc16d65feba34c608d8450e9d764d834';
+var G_client_secret = 'e3192148ff3e4499b1d11b79371c43df';
 var token = ''; // Variable global para el token
 const searchContainer = document.getElementById('searchContainer'); // Asegúrate de tener un contenedor con id "searchContainer"
 
@@ -55,14 +55,15 @@ function buscarDatos() {
     console.error('No se proporcionó un término de búsqueda válido');
   }
 }
+
 function mostrarResultados(data, tipoSeleccionado) {
   const resultados = data[tipoSeleccionado + 's'].items.slice(0, 7); // Limitar los resultados a 7 elementos
 
   resultados.forEach(resultado => {
-    let src, name;
+    let src, name, href;
+    href = resultado.external_urls.spotify; // Obtener el enlace de Spotify
 
     if (tipoSeleccionado === 'track') {
-      // Si es una canción, la imagen puede no estar en el campo "images", usa otro método
       if (resultado.album && resultado.album.images && resultado.album.images.length > 0) {
         src = resultado.album.images[0].url;
       } else {
@@ -83,7 +84,7 @@ function mostrarResultados(data, tipoSeleccionado) {
     }
 
     generateDiv(
-      resultado.href, 
+      href,
       src, 
       name, 
       tipoSeleccionado
@@ -91,10 +92,13 @@ function mostrarResultados(data, tipoSeleccionado) {
   });
 }
 
-function generateDiv(href, src, name, type, imgClass = "", btn = "") {
+function generateDiv(href, src, name, type, imgClass = "") {
   if (src === null) {
     src = "../assets/default_user.png";
   }
+
+  const a = document.createElement("a");
+  a.href = href;
 
   const div = document.createElement('div');
   div.classList.add('results-container');
@@ -113,12 +117,17 @@ function generateDiv(href, src, name, type, imgClass = "", btn = "") {
   typeHeader.textContent = type;
   typeHeader.classList.add('result-type');
   typeHeader.classList.add('text-gray-400');
+  
+  a.target = "_blank"; // Abre el enlace en una nueva pestaña
 
+  searchContainer.appendChild(a);
+  a.appendChild(div);
   div.appendChild(img);
   div.appendChild(nameHeader);
   div.appendChild(typeHeader);
 
-  searchContainer.appendChild(div);
+  a.appendChild(div);
+  searchContainer.appendChild(a);
 }
 
 // Obtener un nuevo token al inicio
