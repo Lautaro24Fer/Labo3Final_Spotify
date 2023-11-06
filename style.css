@@ -375,6 +375,11 @@ section.caja p{
   color: var(--button);
   text-decoration-color: var(--button);
 }
+
+.terminos{
+  margin-top: 1em;
+  font-size: 0.9em;
+}
 form.login{
   text-align: center;
   display: flex;
