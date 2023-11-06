@@ -166,12 +166,115 @@ function mostrarFeed() {
         ${album.artist}
         `
     })
+
 }
 
+const LF_Albums_loggedUsers_favourites = [
+    {
+        artist: 'Artic Monkeys',
+        name: 'Favourite Worst Nightmare',
+        id: '1XkGORuUX2QGOEIL4EbJKm',
+        url: "https://i.scdn.co/image/ab67616d0000b273b1f8da74f225fa1225cdface"
+    },
+    {
+        artist: 'Artic Monkeys',
+        name: 'AM',
+        id: '78bpIziExqiI9qztvNFlQu',
+        url: "https://i.scdn.co/image/ab67616d0000b2734ae1c4c5c45aabe565499163"
+    },
+    {
+        artist: 'Pescado Rabioso',
+        name: 'Artaud',
+        id: '5MJR9j21vjEi4ODxzhvoTA',
+        url: "https://i.scdn.co/image/ab67616d0000b27350db5a166ea23d5d6c4cd387"
+    },
+    {
+        artist: 'Almendra',
+        name: 'Almendra',
+        id: '23jZzJ9u5M9p03nf84zuO1',
+        url: "https://i.scdn.co/image/ab67616d0000b273ccf6d7a68e129185513921e8"
+    },
+    {
+        artist: 'Soda Stereo',
+        name: 'Nada personal',
+        id: '0hyq754QnaKHYpH32QnWqs',
+        url: "https://i.scdn.co/image/ab67616d0000b273e28947f6ad2f100af9c1965a"
+    },
+    {
+        artist: "Pappo's blues",
+        name: "Pappo's blues, Vol. 3",
+        id: '1F3hULFzB7JebCft7dcdBq',
+        url: "https://i.scdn.co/image/ab67616d0000b273b0bad878d09332d8ef4bb87f"
+    }
+];
 
+const LF_Albums_loggedUsers_biblio = [
+    {
+        artist: "Eminem",
+        name: "The Eminem Show",
+        id: '2cWBwpqMsDJC1ZUwz813lo',
+        url: "https://i.scdn.co/image/ab67616d0000b2736ca5c90113b30c3c43ffb8f4"
+    },
+    {
+        artist: "Eminem",
+        name: "Music to be murderer By",
+        id: '4otkd9As6YaxxEkIjXPiZ6',
+        url: "https://i.scdn.co/image/ab67616d0000b2732f44aec83b20e40f3baef73c"
+    },
+    {
+        artist: "Canserbero",
+        name: "Muerte",
+        id: '27xqCLyTHom0wyjtw08K12',
+        url: "https://i.scdn.co/image/ab67616d0000b273fd7bf6e660e2da01813c70f7"
+    },
+    {
+        artist: "Duko",
+        name: "Antes de Ameri",
+        id: '26nUVuonXEdbJTo9PeBYoR',
+        url: "https://i.scdn.co/image/ab67616d0000b273f74269b6ebdb5ab2773c0be9"
+    },
+    {
+        artist: "YSY A",
+        name: "Antezana 247",
+        id: '5tPDpnIZLtftbejuG6BllH',
+        url: "https://i.scdn.co/image/ab67616d0000b27369445bc08d1eb43cc33965c6"
+    },
+    {
+        artist: "Jacob Collier",
+        name: "Djesse Vol.3",
+        id: '33cj3kzLqVOg9zvy69Wrc8',
+        url: "https://i.scdn.co/image/ab67616d0000b27334de228d223a20a8a5d1f465"
+    },
+    {
+        artist: "Virus",
+        name: "Locura",
+        id: '5K3EGqntkI4To4TKtmIj2r',
+        url: "https://i.scdn.co/image/ab67616d0000b273292c1ca632a1e120d1208c95"
+    },
+]
 
+const LF_favoritosHeaderEl = document.querySelectorAll("section.favouritesAlbums-logged button")
+
+function mostrarFavoritosHeader() {
+    LF_Albums_loggedUsers_favourites.map((element, index) => {
+        const img = document.createElement("img")
+        img.src = element.url
+        const h5 = document.createElement("h5")
+        h5.innerHTML = `${element.name}`
+
+        const currentImg = LF_favoritosHeaderEl[index].querySelector(".imageAlbum")
+        const currentTitle = LF_favoritosHeaderEl[index].querySelector(".nameAlbum")
+
+        currentImg.appendChild(img)
+        currentTitle.append(h5)
+
+        LF_favoritosHeaderEl[index].appendChild(currentImg)
+        LF_favoritosHeaderEl[index].appendChild(currentTitle)
+
+    });
+}
 // async function getData(url) {
-//     const url = 'https://spotify23.p.rapidapi.com/albums/?ids=3IBcauSj5M2A6lTeffJzdv';
+//     //const url = 'https://spotify23.p.rapidapi.com/albums/?ids=3IBcauSj5M2A6lTeffJzdv';
 //     const options = {
 //         method: 'GET',
 //         headers: {
@@ -187,7 +290,7 @@ function mostrarFeed() {
 
 // function buildFeed() {
 //     let url = ''
-//     LF_AlbumsRows.map((disco, index) => {
+//     LF_Albums_loggedUsers.map((disco, index) => {
 //         if (index === 0) {
 //             url = `https://spotify23.p.rapidapi.com/albums/?ids=${disco.id}`
 //         }
@@ -200,7 +303,18 @@ function mostrarFeed() {
 
 // buildFeed()
 
-mostrarFeed()
+function cargarApp() {
+    mostrarFeed()
+    mostrarFavoritosHeader()
+}
+
+cargarApp()
+
+
+
+
+
+//ANIMACIONES
 
 
 //animacion del boton que redirecciona a spotify
