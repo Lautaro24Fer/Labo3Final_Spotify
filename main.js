@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var G_client_id = '';
 var G_client_secret = '';
+=======
+var G_client_id = 'bc16d65feba34c608d8450e9d764d834';
+var G_client_secret = 'e3192148ff3e4499b1d11b79371c43df';
+>>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 var token = ''; // Variable global para el token
 const searchContainer = document.getElementById('searchContainer'); // Asegúrate de tener un contenedor con id "searchContainer"
 
@@ -23,6 +28,7 @@ function obtenerNuevoToken() {
     .catch(error => console.error('Error al obtener un nuevo token:', error));
 }
 
+<<<<<<< HEAD
 document.getElementById('buscarButton').addEventListener('click', function () {
   buscarDatos();
 });
@@ -37,6 +43,14 @@ botonesTipo.forEach(boton => {
 });
 
 function buscarDatos() {
+=======
+document.getElementById('buscarButton').addEventListener('click', function() {
+  buscarDatos();
+});
+
+function buscarDatos() {
+  const tipoSeleccionado = document.getElementById('seleccionTipo').value;
+>>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
   const barraBusqueda = document.getElementById('barraBusqueda');
   const busqueda = barraBusqueda.value.trim();
 
@@ -52,10 +66,17 @@ function buscarDatos() {
       .then(response => response.json())
       .then(data => {
         console.log('Resultados de la búsqueda:', data);
+<<<<<<< HEAD
 
         // Limpiar el contenedor antes de mostrar los nuevos resultados
         searchContainer.innerHTML = '';
 
+=======
+        
+        // Limpiar el contenedor antes de mostrar los nuevos resultados
+        searchContainer.innerHTML = '';
+        
+>>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
         mostrarResultados(data, tipoSeleccionado); // Llama a la función para mostrar los resultados en la interfaz
       })
       .catch(error => {
@@ -67,7 +88,11 @@ function buscarDatos() {
 }
 
 function mostrarResultados(data, tipoSeleccionado) {
+<<<<<<< HEAD
   const resultados = data[tipoSeleccionado + 's'].items.slice(0, 8); // Limitar los resultados a 7 elementos
+=======
+  const resultados = data[tipoSeleccionado + 's'].items.slice(0, 7); // Limitar los resultados a 7 elementos
+>>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 
   resultados.forEach(resultado => {
     let src, name, href;
@@ -95,8 +120,13 @@ function mostrarResultados(data, tipoSeleccionado) {
 
     generateDiv(
       href,
+<<<<<<< HEAD
       src,
       name,
+=======
+      src, 
+      name, 
+>>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
       tipoSeleccionado
     );
   });
@@ -127,7 +157,11 @@ function generateDiv(href, src, name, type, imgClass = "") {
   typeHeader.textContent = type;
   typeHeader.classList.add('result-type');
   typeHeader.classList.add('text-gray-400');
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
   a.target = "_blank"; // Abre el enlace en una nueva pestaña
 
   searchContainer.appendChild(a);
