@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-var G_client_id = '';
-var G_client_secret = '';
-=======
 var G_client_id = 'bc16d65feba34c608d8450e9d764d834';
 var G_client_secret = 'e3192148ff3e4499b1d11b79371c43df';
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 var token = ''; // Variable global para el token
 const searchContainer = document.getElementById('searchContainer'); // Asegúrate de tener un contenedor con id "searchContainer"
 
-// Renovación para el uso de los tokens y su renovación automáticamente
+// Función para obtener un nuevo token
 function obtenerNuevoToken() {
   var authOptions = {
     method: 'POST',
@@ -28,33 +23,25 @@ function obtenerNuevoToken() {
     .catch(error => console.error('Error al obtener un nuevo token:', error));
 }
 
-<<<<<<< HEAD
+// Evento al hacer clic en el botón de búsqueda
 document.getElementById('buscarButton').addEventListener('click', function () {
   buscarDatos();
 });
 
-const botonesTipo = document.querySelectorAll('.tipo-btn');
-
-botonesTipo.forEach(boton => {
-  boton.addEventListener('click', function () {
-    botonesTipo.forEach(btn => btn.classList.remove('tipo-activo'));
-    this.classList.add('tipo-activo');
-  });
+// Evento al hacer clic en los botones de tipo
+document.getElementById('botonesTipos').addEventListener('click', function (event) {
+  if (event.target.classList.contains('tipo-btn')) {
+    const activeButton = document.querySelector('.tipo-btn.tipo-activo');
+    activeButton.classList.remove('tipo-activo');
+    event.target.classList.add('tipo-activo');
+    buscarDatos(); // Llamar a buscarDatos al cambiar de tipo
+  }
 });
 
 function buscarDatos() {
-=======
-document.getElementById('buscarButton').addEventListener('click', function() {
-  buscarDatos();
-});
-
-function buscarDatos() {
-  const tipoSeleccionado = document.getElementById('seleccionTipo').value;
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
+  const tipoSeleccionado = document.querySelector('.tipo-btn.tipo-activo').value; // Actualizar selección de botones
   const barraBusqueda = document.getElementById('barraBusqueda');
   const busqueda = barraBusqueda.value.trim();
-
-  const tipoSeleccionado = document.querySelector('.tipo-activo').value;
 
   if (busqueda) {
     fetch(`https://api.spotify.com/v1/search?q=${busqueda}&type=${tipoSeleccionado}`, {
@@ -66,17 +53,10 @@ function buscarDatos() {
       .then(response => response.json())
       .then(data => {
         console.log('Resultados de la búsqueda:', data);
-<<<<<<< HEAD
 
         // Limpiar el contenedor antes de mostrar los nuevos resultados
         searchContainer.innerHTML = '';
 
-=======
-        
-        // Limpiar el contenedor antes de mostrar los nuevos resultados
-        searchContainer.innerHTML = '';
-        
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
         mostrarResultados(data, tipoSeleccionado); // Llama a la función para mostrar los resultados en la interfaz
       })
       .catch(error => {
@@ -88,11 +68,7 @@ function buscarDatos() {
 }
 
 function mostrarResultados(data, tipoSeleccionado) {
-<<<<<<< HEAD
-  const resultados = data[tipoSeleccionado + 's'].items.slice(0, 8); // Limitar los resultados a 7 elementos
-=======
   const resultados = data[tipoSeleccionado + 's'].items.slice(0, 7); // Limitar los resultados a 7 elementos
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 
   resultados.forEach(resultado => {
     let src, name, href;
@@ -120,13 +96,8 @@ function mostrarResultados(data, tipoSeleccionado) {
 
     generateDiv(
       href,
-<<<<<<< HEAD
       src,
       name,
-=======
-      src, 
-      name, 
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
       tipoSeleccionado
     );
   });
@@ -141,36 +112,29 @@ function generateDiv(href, src, name, type, imgClass = "") {
   a.href = href;
 
   const div = document.createElement('div');
-  div.classList.add('results-container');
+  div.classList.add('result-card');
 
   const img = document.createElement('img');
   img.src = src;
   img.alt = `logo-${name}`;
-  img.className = `result-img w-24 justify-center items-center ${imgClass}`;
+  img.classList.add('result-img'); // Agregar clase result-img a la imagen
   img.draggable = 'false';
 
   const nameHeader = document.createElement('h5');
   nameHeader.textContent = name;
-  nameHeader.classList.add('result-name');
+  nameHeader.classList.add('result-name'); // Agregar clase result-name al nombre
 
   const typeHeader = document.createElement('h6');
   typeHeader.textContent = type;
-  typeHeader.classList.add('result-type');
-  typeHeader.classList.add('text-gray-400');
-<<<<<<< HEAD
+  typeHeader.classList.add('result-type'); // Agregar clase result-type al tipo
 
-=======
-  
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
   a.target = "_blank"; // Abre el enlace en una nueva pestaña
 
-  searchContainer.appendChild(a);
   a.appendChild(div);
   div.appendChild(img);
   div.appendChild(nameHeader);
   div.appendChild(typeHeader);
 
-  a.appendChild(div);
   searchContainer.appendChild(a);
 }
 

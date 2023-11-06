@@ -4,41 +4,21 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
   background-color: rgb(24, 24, 24);
-=======
-  justify-content: flex-start; /* Alineación de contenido en la parte superior */
-  align-items: center;
-  height: 100vh;
-  background-color: rgb(160, 160, 160); /* Cambio del color de fondo a negro */
-}
-
-h1 {
-  color: #1DB954; /* Color verde característico de Spotify */
-  margin: 20px 0;
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 }
 
 .search-box {
   display: flex;
-<<<<<<< HEAD
   flex-direction: column;
-=======
-  flex-direction: column; /* Alineación vertical */
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
   align-items: center;
   padding: 20px 0;
 }
 
-<<<<<<< HEAD
 input[type="text"],
 select {
-=======
-input[type="text"], select {
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #fff;
@@ -59,7 +39,6 @@ button {
 button:hover {
   background-color: #ccc;
 }
-<<<<<<< HEAD
 
 .results-container {
   display: flex;
@@ -87,42 +66,17 @@ button:hover {
   justify-content: center;
   text-align: center;
 
-=======
-.results-container {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.result-img {
-  width: 50px; /* Ajusta el tamaño de la imagen */
-  height: 50px;
-  margin-right: 15px;
-  border-radius: 50%; /* Para hacer que la imagen sea redonda (opcional) */
-}
-
-.result-info {
-  flex: 1;
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 }
 
 .result-name {
   margin: 0 0 5px;
-<<<<<<< HEAD
   font-size: 1.6em;
-=======
-  font-size: 1.2em;
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 }
 
 .result-artists {
   margin: 0;
   font-size: 0.9em;
   color: #777;
-<<<<<<< HEAD
 }
 
 .tipo-btn {
@@ -223,6 +177,4 @@ button:hover {
   font-size: .9em;
   transition: all .1s ease-in-out;
   width: 80%;
-=======
->>>>>>> f762e96385808c723f4b7fbc70fd607ea59532f2
 }
