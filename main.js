@@ -23,18 +23,15 @@ function obtenerNuevoToken() {
     .catch(error => console.error('Error al obtener un nuevo token:', error));
 }
 
-// Evento al hacer clic en el botón de búsqueda
 document.getElementById('buscarButton').addEventListener('click', function () {
   buscarDatos();
 });
 
-// Evento al hacer clic en los botones de tipo
 document.getElementById('botonesTipos').addEventListener('click', function (event) {
   if (event.target.classList.contains('tipo-btn')) {
     const activeButton = document.querySelector('.tipo-btn.tipo-activo');
     activeButton.classList.remove('tipo-activo');
     event.target.classList.add('tipo-activo');
-    buscarDatos(); // Llamar a buscarDatos al cambiar de tipo
   }
 });
 
