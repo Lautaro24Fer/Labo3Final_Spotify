@@ -1,28 +1,499 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  max-width: 100vw;
+}
+
+
+:root {
+  --color1: rgb(0, 0, 0);
+  --color2: rgb(22, 22, 22);
+  --color3: rgb(45, 45, 45);
+  --color4: rgb(91, 91, 91);
+  --color5: rgb(238, 238, 238);
+  --color6: rgb(28, 28, 28);
+}
+
+body {
+  background-color: var(--color1);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 1em 2em 1em 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+/*configurar grilla*/
+
+article.container-grid {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 1fr;
+  gap: 1em;
+  height: 100%;
+}
+
+/*aside*/
+
+aside.asideSection {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 1fr;
+  gap: 1em;
+}
+
+/*nav*/
+
+section.nav {
+  background-color: var(--color2);
+  height: 100%;
+  border-radius: 1em;
+}
+
+section.nav ul.nav-containerItems {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding:  0 0 0 2em;
+  justify-content: space-evenly;
+}
+
+section.nav ul.nav-containerItems li.nav-itemElement button{
+  background-color: transparent;
+  border: none;
+}
+
+
+section.nav ul.nav-containerItems li.nav-itemElement button a{
+  display: flex;
+  gap: 1em;
+
+}
+
+section.nav ul.nav-containerItems li.nav-itemElement button a svg{
+  height: 1.5em;
+  fill: var(--color4);
+}
+
+section.nav ul.nav-containerItems li.nav-itemElement button a h6{
+  font-size: 1.5em;
+  color: var(--color4)
+
+}
+
+/*biblioteca*/
+
+section.biblio {
+  height: 100%;
+  background-color: var(--color2);
+  border-radius: 1em;
+  padding: 1.5em 1em 1em 1em;
+  overflow-y: auto;
+}
+
+section.biblio::-webkit-scrollbar{
+  background-color: transparent;
+}
+
+section.biblio::-webkit-scrollbar-thumb{
+  background-color: transparent;
+  border-radius: 1em;
+}
+
+section.biblio:hover::-webkit-scrollbar-thumb{
+  background-color: var(--color3);
+}
+
+section.biblio div.biblio-header{
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  position: relative;
+}
+
+section.biblio div.biblio-header .itemH{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+section.biblio div.biblio-header svg{
+  fill: var(--color4);
+  height: 1.2em;
+}
+
+section.biblio div.biblio-header svg.plusButton{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: .4em 0 0 0;
+}
+
+section.biblio div.biblio-header h6{
+  color: var(--color4);
+  font-size: 1.2em;
+}
+
+section.biblio div.biblio-main{
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0 0 0;
+  color: var(--color5);
+  gap: 1em;
+}
+
+section.biblio div.biblio-main div.biblioCard{
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  background-color: var(--color3);
+  border-radius: .5em;
+  padding: .8em;
+
+}
+
+section.biblio div.biblio-main div.biblioCard h6{
+  font-size: 1.1em;
+}
+
+section.biblio div.biblio-main div.biblioCard p{
+  font-size: .9em;
+}
+
+section.biblio div.biblio-main div.biblioCard button{
+  margin: 1em 0 0 0;
+  padding: .6em 1.2em;
+  width: max-content;
+  border-radius: 1em;
+  border: transparent;
+  background-color: white;
+  font-weight: bold;
+  transition: all .2s ease-in;
+}
+
+section.biblio div.biblio-main div.biblioCard button:hover{
+  padding: .8em 1.4em;
+  border-radius: 1.2em;
+}
+
+div.biblio-footer ul.legalThings {
+  padding: 4em 0 0 0;
+}
+
+div.biblio-footer ul.legalThings li{
+  display: inline;
+  margin-right: .9em;
+}
+
+div.biblio-footer ul.legalThings li a{
+  color: var(--color4);
+}
+
+div.biblio-footer ul.legalThings li a:hover{
+  text-decoration: underline;
+}
+
+section.biblio button.translateButton{
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  margin: 2em 0 0 0;
+  padding: .5em .8em;
+  border-radius: 1em;
+  border: 1px solid var(--color4);
+  color: var(--color5);
+  background-color: transparent;
+  font-size: .9em;
+  transition: all .1s ease-in-out;
+}
+
+section.biblio button.translateButton:hover{
+  padding: .7em 1em;
+  border-radius: 1.2em;
+}
+
+section.biblio button.translateButton svg{
+  fill: var(--color5);
+  height: 1.7em;
+}
+/*fin de aside*/
+
+/*main*/
+
+main.mainContent {
+  
+  border-radius: 1em;
+  padding: 1em;
+  color: var(--color5);
+  overflow-x: auto;
+}
+
+main.mainContent::-webkit-scrollbar{
+  background-color: transparent;
+}
+
+main.mainContent::-webkit-scrollbar-thumb{
+  background-color: transparent;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+
+main.mainContent:hover::-webkit-scrollbar-thumb{
+  background-color: var(--color3);
+  opacity: 1;
+  border-radius: 2em;
+  width: 2em;
+  transition: all .2s ease-in-out;
+}
+
+main.mainContent header h1{
+  font-size: 2em;
+}
+
+main.mainContent article.bodyOfContent {
+  padding: 3em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+main.mainContent article.bodyOfContent section {
+  width: 100%;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements {
+  display: flex;
+  gap: 2em;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin: 0 0 0 0;
+  padding: 2em 0 1em 0;
+}
+
+@media (width >=1275px) {
+  main.mainContent article.bodyOfContent section div.containerElements {
+    justify-content: space-around;
+    overflow: hidden;
+  }
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element {
+  background-color: var(--color6);
+  padding: 1em 1em 1.5em 1em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  gap: 1em;
+  width: 11em;
+  position: relative;
+  transition: all .2s ease-in-out;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element:hover{
+  background-color: var(--color3);
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element button.goToSpotifyBtn{
+  background-color: rgb(83, 255, 83);
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 1em 4em 0;
+  opacity: 0;
+  transition: all .1s ease-in;
+  box-shadow: -1px 8px 22px -5px rgba(0,0,0,0.75);
+-webkit-box-shadow: -1px 8px 22px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 8px 22px -5px rgba(0,0,0,0.75);
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element button.goToSpotifyBtn:hover{
+  transition: all .1s ease-in;
+  height: 3.8em;
+  width: 3.8em;
+  margin: 0 1.3em 4.3em 0;
+  display: grid;
+  place-items: center;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element button.goToSpotifyBtn svg{
+  height: 1.5em;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element div.img {
+  height: 9em;
+  width: 9em;
+  background-color: var(--color1);
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element div.img img {
+  object-fit: cover;
+  height: 9em;
+  width: 9em;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element h3.nombre {
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1em;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements article.element div.artista {
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--color4);
+}
+
+/*footer*/
+
+footer.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 3em 0 5em 0;
+}
+
+footer.footer section.aboutUse {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+
+footer.footer section.aboutUse article ul{
+  margin: .8em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+footer.footer section.aboutUse article ul li a{
+  color: var(--color4);
+}
+
+footer.footer section.aboutUse article ul li a:hover{
+  text-decoration: underline;
+}
+
+footer.footer article.media{
+  display: flex;
+  gap: 1.5em;
+  justify-content: end;
+}
+footer.footer article.media button{
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
+  fill: var(--color5);
+  background-color: var(--color3);
+  border: none;
+  display: grid;
+  place-items: center;
+  transition: all .2s ease-in-out;
+}
+
+footer.footer article.media button a{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+footer.footer article.media button a svg{
+  height: 1.7em;
+  transition: all .2s ease-in-out;
+  fill: var(--color5);
+}
+
+section.aboutLegalUse {
+  display: flex;
+  position: relative;
+  padding: 1em 0 0 0;
+}
+
+section.aboutLegalUse ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 1em;
+  text-align: left;
+  gap: 10px;
+}
+
+section.aboutLegalUse ul li {
+  font-size:.9em;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+section.aboutLegalUse ul li a{
+  color: var(--color4);
+  transition: all .2s ease-in-out;
+}
+
+section.aboutLegalUse ul li a:hover{
+  color: var(--color5);
+  font-weight: bold;
+}
+
+section.aboutLegalUse div.copyright{
+  color: var(--color5);
+}
+
+/*fin de main*/
+
 body {
   font-family: 'Circular Spotify Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alineación de contenido en la parte superior */
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
-  background-color: rgb(160, 160, 160); /* Cambio del color de fondo a negro */
-}
-
-h1 {
-  color: #1DB954; /* Color verde característico de Spotify */
-  margin: 20px 0;
+  background-color: rgb(24, 24, 24);
 }
 
 .search-box {
   display: flex;
-  flex-direction: column; /* Alineación vertical */
+  flex-direction:initial;
   align-items: center;
   padding: 20px 0;
 }
 
-input[type="text"], select {
+input[type="text"],
+select {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #fff;
@@ -31,45 +502,228 @@ input[type="text"], select {
   color: #000;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #fff;
-  border: none;
-  color: #000;
-  border-radius: 4px;
-  cursor: pointer;
-}
+
 
 button:hover {
   background-color: #ccc;
 }
+
 .results-container {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
+  width: 30vh;
+  height: 40vh;
+  background-color: #4b4b4b;
 }
 
 .result-img {
-  width: 50px; /* Ajusta el tamaño de la imagen */
-  height: 50px;
-  margin-right: 15px;
-  border-radius: 50%; /* Para hacer que la imagen sea redonda (opcional) */
+  width: 50px;
+  width: 40vh;
+  height: 40vh;
+  border-radius: 20%;
 }
 
 .result-info {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
 }
 
 .result-name {
   margin: 0 0 5px;
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
 .result-artists {
   margin: 0;
   font-size: 0.9em;
   color: #777;
+}
+
+.tipo-btn {
+  padding: 8px 16px;
+  margin-right: 8px;
+  background-color: #747474;
+  cursor: pointer;
+}
+
+.tipo-btn.tipo-activo {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #007bff;
+
+}
+
+.result-name {
+  font-weight: bold;
+  margin: 0;
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+.result-type {
+  color: #888;
+  margin: 0;
+}
+
+/* Estilo nuevo */
+
+.result-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
+  margin-bottom: 15px;
+}
+
+#searchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+
+.discoElementSpotify {
+  background-color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  width: 200px;
+  height: 250px;
+  align-items: center;
+
+}
+
+.discoElementSpotify .img {
+  margin: 0 auto;
+}
+
+.discoElementSpotify .text {
+  margin-top: 15px;
+}
+
+.discoElementSpotify .nombre {
+  font-size: 1.2em;
+}
+
+.discoElementSpotify .artista {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.discoElementSpotify .nombre,
+.discoElementSpotify .artista {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px; /* Tamaño máximo para el texto */
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*background-color: #282828;*/
+  padding: 20px;
+}
+
+#barraBusqueda {
+  width: 80%;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.tipo-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.tipo-btn.tipo-activo {
+  background-color: #1db954;
+}
+#buscarButton {
+  padding: 8px 16px;
+  border: none;
+  background-color: #1db954;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#buscarButton:hover {
+  background-color: #1ed760;
+}
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#botonesTipos {
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+.tipo-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tipo-btn:hover {
+  background-color: #ddd;
+}
+.tipo-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tipo-btn:hover {
+  background-color: #ddd;
+}
+
+/* Para pantallas más pequeñas, se aplica un diseño diferente */
+@media (max-width: 768px) {
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #botonesTipos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tipo-btn {
+    margin: 5px;
+    width: 80px; /* Ajusta el ancho de los botones según tu preferencia */
+    text-align: center;
+  }
 }
