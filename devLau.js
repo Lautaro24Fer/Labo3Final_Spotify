@@ -273,6 +273,32 @@ function mostrarFavoritosHeader() {
 
     });
 }
+
+const LF_favoritosAsideEl = document.querySelectorAll("section.favouritesAlbums-logged-column button")
+
+function mostrarFavoritosAside() {
+    LF_Albums_loggedUsers_biblio.map((album, index) => {
+        const img = document.createElement("img")
+        img.src = album.url
+        const h4 = document.createElement("h4")
+        h4.innerHTML = album.name
+
+        const imageEl = LF_favoritosAsideEl[index].querySelector(".imageAlbum")
+        const titleEl = LF_favoritosAsideEl[index].querySelector(".nameAlbum")
+
+        imageEl.appendChild(img)
+        // titleEl.appendChild(h4)
+        titleEl.innerHTML = `
+        <div class="albumName">
+        ${album.name}
+        </div>
+        <div class="artistName">
+        ${album.artist}
+        </div>
+        `
+    });
+}
+
 // async function getData(url) {
 //     //const url = 'https://spotify23.p.rapidapi.com/albums/?ids=3IBcauSj5M2A6lTeffJzdv';
 //     const options = {
@@ -306,6 +332,7 @@ function mostrarFavoritosHeader() {
 function cargarApp() {
     mostrarFeed()
     mostrarFavoritosHeader()
+    mostrarFavoritosAside()
 }
 
 cargarApp()
@@ -363,6 +390,8 @@ LF_navBtnEl.forEach(btn => {
 //hover en los botones de redes
 const LF_mediaButtonsEl = document.querySelectorAll("article.media button")
 
+console.log(LF_mediaButtonsEl.length)
+
 LF_mediaButtonsEl.forEach(btn => {
 
     btn.addEventListener("mouseenter", () => {
@@ -371,11 +400,11 @@ LF_mediaButtonsEl.forEach(btn => {
         if (btn.id === "igbtn") {
             btn.style.background = "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)"
         }
-        if (btn.id === "xbtn") {
+        else if (btn.id === "xbtn") {
             btn.style.background = "black"
 
         }
-        if (btn.id === "fbbtn") {
+        else if (btn.id === "fbbtn") {
             btn.style.background = "rgb(127, 127, 255)"
         }
         btn.style.height = "3.8em"
@@ -390,7 +419,6 @@ LF_mediaButtonsEl.forEach(btn => {
         btn.style.width = "3.5em"
         btn.style.background = "rgb(45, 45, 45)"
     })
-    cont++
 });
 
 //hover en la biblioteca

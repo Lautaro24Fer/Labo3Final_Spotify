@@ -97,7 +97,7 @@ section.nav ul.nav-containerItems li.nav-itemElement button a h6{
 /*biblioteca*/
 
 section.biblio {
-  height: 100%;
+  height: 74vh;
   background-color: var(--color2);
   border-radius: 1em;
   padding: 1.5em 1em 1em 1em;
@@ -154,6 +154,70 @@ section.biblio div.biblio-main{
   color: var(--color5);
   gap: 1em;
 }
+
+/*--logged*/
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged{
+  height: 5em;
+  padding: .1em .1em .1em .4em;
+  border-radius: .3em;
+  background-color: transparent;
+  transition: all .1s ease-in-out;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged:hover{
+  background-color: var(--color3);
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged a{
+  display: flex;
+  gap: 1.2em;
+  width: 100%;
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged div.imageAlbum{
+  width: 3em;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged div.imageAlbum img{
+  width: 4.3em;
+  height: 100%;
+  border-radius: .3em;
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged div.nameAlbum{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 0 0 0 .5em;
+  gap: .3em;
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged div.nameAlbum div.albumName{
+  font-weight: bold;
+  color: var(--color5);
+  font-size: 1.1em;
+}
+
+section.biblio div.biblio-main section.favouritesAlbums-logged-column button.elementAlbumLogged div.nameAlbum div.artistName{
+  color: var(--color4);
+}
+
+/*--fin logged*/
+
 
 section.biblio div.biblio-main div.biblioCard{
   display: flex;
@@ -295,7 +359,7 @@ main.mainContent header section.favouritesAlbums-logged button .imageAlbum{
 main.mainContent header section.favouritesAlbums-logged button .imageAlbum img{
   height: 100%;
   width: 5em;
-  border-radius: .5em 0 0 .5em;
+  border-radius: .3em 0 0 .3em;
 }
 
 main.mainContent header section.favouritesAlbums-logged button div.nameAlbum{
