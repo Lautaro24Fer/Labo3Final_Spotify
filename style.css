@@ -47,7 +47,7 @@ article.container-grid {
 
 @media (width <= 950px) {
   article.container-grid{
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 5em 1fr;
   }
 }
 
@@ -246,7 +246,7 @@ section.biblio button.translateButton svg{
   }
 
   section.nav ul.nav-containerItems{
-    padding: 0 1em 0 1em;
+    padding: 0 1em;
   }
 
   section.nav ul.nav-containerItems li.nav-itemElement{
@@ -364,6 +364,19 @@ main.mainContent article.bodyOfContent section div.containerElements {
   overflow-x: scroll;
   margin: 0 0 0 0;
   padding: 2em 0 1em 0;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements::-webkit-scrollbar-thumb {
+  background-color: var(--color4);
+  border-radius: 0.7em;
+}
+
+main.mainContent article.bodyOfContent section div.containerElements::-webkit-scrollbar-track {
+  background-color: var(--color2);
 }
 
 @media (width >=1450px) {
