@@ -535,5 +535,25 @@ section.aboutLegalUse ul li a{
 section.aboutLegalUse div.copyright{
   color: var(--color5);
 }
-
 /*fin de main*/
+
+@media (max-width: 422px){
+  header.cont-caja{
+    width: 100%;
+  }
+  section.caja{
+    width: 95%;
+    padding: 1em;
+  }
+  button.boton{
+    width: 75%;
+  }
+  form.login{
+    width: 80%;
+  }
+}
+@media(max-width: 340px){
+  section.caja{
+    justify-content: center;
+  }
+}
