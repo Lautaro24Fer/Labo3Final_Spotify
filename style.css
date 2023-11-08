@@ -485,14 +485,14 @@ body {
   background-color: rgb(24, 24, 24);
 }
 
-.search-box {
+main.search-box {
   display: flex;
   flex-direction:initial;
   align-items: center;
   padding: 20px 0;
 }
 
-input[type="text"],
+main.input[type="text"],
 select {
   padding: 10px;
   margin-bottom: 10px;
@@ -504,7 +504,7 @@ select {
 
 
 
-button:hover {
+main.button:hover {
   background-color: #ccc;
 }
 
@@ -519,14 +519,14 @@ button:hover {
   background-color: #4b4b4b;
 }
 
-.result-img {
+main.result-img {
   width: 50px;
   width: 40vh;
   height: 40vh;
   border-radius: 20%;
 }
 
-.result-info {
+main.result-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -535,46 +535,46 @@ button:hover {
 
 }
 
-.result-name {
+main.result-name {
   margin: 0 0 5px;
   font-size: 1.6em;
 }
 
-.result-artists {
+main.result-artists {
   margin: 0;
   font-size: 0.9em;
   color: #777;
 }
 
-.tipo-btn {
+main.tipo-btn {
   padding: 8px 16px;
   margin-right: 8px;
   background-color: #747474;
   cursor: pointer;
 }
 
-.tipo-btn.tipo-activo {
+main.tipo-btn.tipo-activo {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border: 1px solid #007bff;
 
 }
 
-.result-name {
+main.result-name {
   font-weight: bold;
   margin: 0;
   color: #f0f0f0;
   text-decoration: none;
 }
 
-.result-type {
+main.result-type {
   color: #888;
   margin: 0;
 }
 
 /* Estilo nuevo */
 
-.result-img {
+main.result-img {
   width: 150px;
   height: 150px;
   border-radius: 10%;
@@ -589,7 +589,7 @@ button:hover {
 }
 
 
-.discoElementSpotify {
+main.discoElementSpotify {
   background-color: #000;
   padding: 20px;
   border-radius: 10px;
@@ -601,34 +601,33 @@ button:hover {
 
 }
 
-.discoElementSpotify .img {
+main.discoElementSpotify .img {
   margin: 0 auto;
 }
 
-.discoElementSpotify .text {
+main.discoElementSpotify .text {
   margin-top: 15px;
 }
 
-.discoElementSpotify .nombre {
+main.discoElementSpotify .nombre {
   font-size: 1.2em;
 }
 
-.discoElementSpotify .artista {
+main.discoElementSpotify .artista {
   color: #999;
   font-size: 0.9em;
 }
 
-.discoElementSpotify .nombre,
-.discoElementSpotify .artista {
+main.discoElementSpotify .nombre,
+main.discoElementSpotify .artista {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 150px; /* Tamaño máximo para el texto */
 }
-.search-box {
+main.search-box {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   /*background-color: #282828;*/
   padding: 20px;
 }
@@ -640,6 +639,7 @@ button:hover {
   border-radius: 20px;
   background-color: #1e1e1e;
   color: #fff;
+  max-width: 75%;
 }
 
 .tipo-btn {
@@ -663,6 +663,7 @@ button:hover {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  border-radius: 40px;
 }
 
 #buscarButton:hover {
@@ -671,37 +672,33 @@ button:hover {
 .search-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+
+  margin-top: 0;
 }
 
 #botonesTipos {
   display: flex;
   gap: 10px;
-  justify-content: center; /* Centra los elementos horizontalmente */
+  margin-top: 1rem;
+
 }
 
-.tipo-btn {
-  padding: 8px 16px;
-  border: none;
-  background-color: #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
 .tipo-btn:hover {
   background-color: #ddd;
 }
 .tipo-btn {
-  padding: 8px 16px;
+  padding: px 16px;
   border: none;
   background-color: #ccc;
-  border-radius: 4px;
+
   cursor: pointer;
   transition: background-color 0.3s;
+  border-radius: 40px;
 }
-
+.text-result{
+  margin-top: 1rem;
+}
 .tipo-btn:hover {
   background-color: #ddd;
 }
