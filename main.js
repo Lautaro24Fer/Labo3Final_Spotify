@@ -1,9 +1,12 @@
 import { renderBiblioUnlogged } from "./capsulas/biblioUnlogged";
 import { renderAlbumsHeader } from "./capsulas/headerAlbums";
 import { renderBiblioLogged } from "./capsulas/biblioLogged";
+import { renderLogIn } from "./capsulas/login";
 
 renderBiblioLogged()
 renderAlbumsHeader()
+
+
 
 //cargar feed
 const LF_ds_imgEl = document.querySelectorAll(".discoElementSpotify .img");
@@ -169,12 +172,12 @@ function mostrarFeed() {
     })
 
 }
+
 mostrarFeed()
 //fin cargar feed
 
 
 //Animaciones//
-//ANIMACIONES
 
 
 //animacion del boton que redirecciona a spotify

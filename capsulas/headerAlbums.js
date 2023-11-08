@@ -4,6 +4,7 @@ export function renderAlbumsHeader() {
   const containerElements = document.createElement("div")
 
   containerElements.innerHTML = `
+  
     <section class="favouritesAlbums-logged">
     <button class="elementAlbumLogged"><a href="#" target="_blank">
       <div class="imageAlbum">
