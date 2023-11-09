@@ -3,10 +3,8 @@ import { renderAlbumsHeader } from "./capsulas/headerAlbums";
 import { renderBiblioLogged } from "./capsulas/biblioLogged";
 import { renderLogIn } from "./capsulas/login";
 
-renderBiblioLogged()
-renderAlbumsHeader()
 
-
+renderLogIn()
 
 //cargar feed
 const LF_ds_imgEl = document.querySelectorAll(".discoElementSpotify .img");
@@ -226,7 +224,6 @@ LF_navBtnEl.forEach(btn => {
 //hover en los botones de redes
 const LF_mediaButtonsEl = document.querySelectorAll("article.media button")
 
-console.log(LF_mediaButtonsEl.length)
 
 LF_mediaButtonsEl.forEach(btn => {
 
