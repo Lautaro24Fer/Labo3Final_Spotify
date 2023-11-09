@@ -1,17 +1,13 @@
 import './stylesLogin.css'
-import { renderBiblioUnlogged } from './biblioUnlogged'
 import { renderAlbumsHeader } from './headerAlbums'
 import { renderBiblioLogged } from './biblioLogged'
+import { renderBiblioUnlogged } from './biblioUnlogged'
 
-
-const { VITE_CORREO_USUARIO: correo,
+const { VITE_CORREO_USUARIO: userName,
   VITE_PW_USUARIO: password } = import.meta.env
-
 
 export function renderLogIn() {
   const loginHtml = document.createElement("article")
-
-  loginHtml.classList.add("contenedor-login")
 
   loginHtml.innerHTML = `
     <article class="userLogin">
@@ -24,12 +20,12 @@ export function renderLogIn() {
             <h1 class="titulo">Inicia sesión en SpotiHub</h1>
             <form class="login">
               
-              <input type="text" id="usernameInput" placeholder="Nombre de usuario" autocomplete="off">
+              <input type="text" id="usernameId" placeholder="Nombre de usuario" autocomplete="off">
               
-              <input type="password" id="passInput" placeholder="Contraseña" autocomplete="off">
+              <input type="password" id="passId" placeholder="Contraseña" autocomplete="off">
             </form>
-            <button a class="boton" id="iniciarSesion"><strong>Iniciar sesión</strong></button>
-            <button a class="boton" id="modeInvited"><strong>Modo Invitado</strong></button>
+            <button id="iniciarSesionId" class="boton"><strong>Iniciar sesión</strong></button>
+            <button id="modoInvitadoId" class="boton"><strong>Modo Invitado</strong></button>
             <p><a class="a2" href="#">Te has olvidado la contraseña?</a></p>
             <hr>
             <footer class="footer">
@@ -44,23 +40,22 @@ export function renderLogIn() {
   const punteroOfMain = document.querySelector("#loginContainer")
   punteroOfMain.appendChild(loginHtml)
 
-  const btnInvited = loginHtml.querySelector("#modeInvited")
+  const userNameEl = loginHtml.querySelector('#usernameId')
+  const userPasswordEl = loginHtml.querySelector('#passId')
 
-  const iniciarSesion = loginHtml.querySelector("#iniciarSesion")
+  const btnModoInvitado = loginHtml.querySelector('#modoInvitadoId')
+  const btnIniciarSesion = loginHtml.querySelector('#iniciarSesionId')
 
-  btnInvited.addEventListener("click", () => {
+  btnModoInvitado.addEventListener("click", () => {
     loginHtml.innerHTML = ''
     renderBiblioUnlogged()
   });
 
-  iniciarSesion.addEventListener("click", () => {
-    const correoInput = loginHtml.querySelector("#usernameInput")
-    const passwordInput = loginHtml.querySelector("#passInput")
-
-    if (correoInput.value === `${correo}` && passwordInput.value === `${password}`) {
+  btnIniciarSesion.addEventListener("click", () => {
+    if (userName === `${userNameEl.value}` && password === `${userPasswordEl.value}`) {
       loginHtml.innerHTML = ''
-      renderAlbumsHeader()
       renderBiblioLogged()
+      renderAlbumsHeader()
     }
   });
 
